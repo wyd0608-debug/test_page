@@ -1,219 +1,72 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { motion } from "framer-motion";
-import {
-  Sparkles,
-  LineChart,
-  Shield,
-  Users,
-  Building2,
-  BarChart3,
-  CheckCircle2,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
-export default function Homepage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 border-b">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-xl bg-slate-900 text-white grid place-items-center">
-              <Sparkles className="h-4 w-4" />
-            </div>
-            <span className="font-semibold tracking-tight">TU Strategy Lab</span>
-          </div>
-          <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#services" className="hover:text-slate-600">서비스</a>
-            <a href="#cases" className="hover:text-slate-600">사례</a>
-            <a href="#about" className="hover:text-slate-600">소개</a>
-            <a href="#contact" className="hover:text-slate-600">문의</a>
-          </div>
-          <div className="hidden md:block">
-            <Button className="rounded-2xl">상담 예약</Button>
-          </div>
-        </nav>
-      </header>
-      {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 opacity-40" style={{backgroundImage:"radial-gradient(600px 300px at 10% 10%, rgba(59,130,246,0.15), transparent), radial-gradient(600px 300px at 90% 10%, rgba(236,72,153,0.15), transparent)"}}/>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} transition={{duration:0.6}}>
-            <span className="inline-flex items-center gap-2 text-xs font-medium bg-white/70 border px-3 py-1 rounded-full">
-              <Sparkles className="h-3 w-3" /> 10분 완성 · 반응형 랜딩 페이지
-            </span>
-            <h1 className="mt-4 text-4xl/tight md:text-5xl/tight font-extrabold tracking-tight">
-              CX·데이터 기반 <span className="bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">전략 홈페이지</span>
-            </h1>
-            <p className="mt-4 text-slate-600 text-base md:text-lg">
-              티유게더·의료 MSO/CIP 맥락에 맞춘 브랜딩, 포트폴리오, 문의 전환까지 한 번에.
-              필요 문구만 바꿔 바로 사용하세요.
-            </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button size="lg" className="rounded-2xl"><a href="#contact">지금 문의하기</a></Button>
-              <Button size="lg" variant="outline" className="rounded-2xl"><a href="#cases">사례 살펴보기</a></Button>
-            </div>
-            <ul className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-600">
-              {[
-                "반응형(모바일/PC)",
-                "Tailwind + shadcn",
-                "무료 배포 가이드",
-                "문의 폼 포함",
-              ].map((t) => (
-                <li key={t} className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4"/> {t}</li>
-              ))}
-            </ul>
-          </motion.div>
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1, y:0}} transition={{duration:0.6, delay:0.1}}>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
-              <img
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop"
-                alt="dashboard"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-xs uppercase tracking-widest opacity-80">Sample</p>
-                <p className="text-lg font-semibold">MSO/CIP 성과 대시보드</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* SERVICES */}
-      <section id="services" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight">무엇을 제공하나요?</h2>
-          <p className="mt-2 text-slate-600">의료·커머스 조직에서 바로 쓰는 실전형 홈페이지 섹션</p>
-        </div>
-        <div className="mt-8 grid md:grid-cols-3 gap-6">
-          {[{
-            icon: <LineChart className="h-5 w-5"/>,
-            title: "데이터 스토리텔링",
-            desc: "매출, KPI, VOC 지표를 명확한 그래프와 카피로 전달",
-          },{
-            icon: <Shield className="h-5 w-5"/>,
-            title: "신뢰·컴플라이언스",
-            desc: "의료/법적 문구, 개인정보 처리방침 섹션 포함",
-          },{
-            icon: <Users className="h-5 w-5"/>,
-            title: "리드 전환",
-            desc: "상담 버튼, 문의 폼, CTA 배치 최적화",
-          }].map((s, i) => (
-            <Card key={i} className="rounded-2xl">
-              <CardHeader>
-                <div className="h-10 w-10 rounded-xl bg-slate-900 text-white grid place-items-center">{s.icon}</div>
-                <CardTitle className="mt-3">{s.title}</CardTitle>
-                <CardDescription>{s.desc}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </section>
-      {/* CASES */}
-      <section id="cases" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight">프로젝트 & 사례</h2>
-          <p className="mt-2 text-slate-600">실제처럼 편집 가능한 더미 카드 3종</p>
-        </div>
-        <div className="mt-8 grid md:grid-cols-3 gap-6">
-          {[
-            {title:"MSO 운영 표준화", img:"https://images.unsplash.com/photo-1551836022-deb4988cc6c0?q=80&w=1600&auto=format&fit=crop", kpi:"CS 응답 SLA 95%"},
-            {title:"CIP SaaS LTV 전략", img:"https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1600&auto=format&fit=crop", kpi:"월 반복구매 +18%"},
-            {title:"VOC 개선 대시보드", img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop", kpi:"민원 재발 -23%"},
-          ].map((c, i) => (
-            <Card key={i} className="overflow-hidden rounded-2xl">
-              <img src={c.img} alt="case" className="h-40 w-full object-cover"/>
-              <CardHeader>
-                <CardTitle>{c.title}</CardTitle>
-                <CardDescription>핵심 KPI: {c.kpi}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-slate-600">간단 설명을 여기에. 문제 → 접근 → 결과 순으로 3~4문장.
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-      {/* METRICS STRIP */}
-      <section className="bg-white border-y">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[{n:"107명", l:"팀 규모(예시)"},{n:"22.2억", l:"월 KPI(예시)"},{n:"95%", l:"SLA 달성"},{n:"4.9/5", l:"고객만족"}].map((m)=> (
-            <div key={m.l}>
-              <div className="text-3xl font-extrabold">{m.n}</div>
-              <div className="text-xs text-slate-600 mt-1">{m.l}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* ABOUT */}
-      <section id="about" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight">왜 우리인가요?</h2>
-            <p className="mt-3 text-slate-600">CX/VOC 운영, 전략기획, 데이터 분석 기반의 실행력을 홈페이지에 그대로 녹였습니다. MSO·CIP 특수성을 반영한 정보 구조로 신뢰와 전환을 동시에 잡습니다.</p>
-            <ul className="mt-6 space-y-3 text-sm text-slate-700">
-              <li className="flex items-start gap-2"><Building2 className="h-4 w-4 mt-1"/> 의료/MSO 도메인 적합 카피 & 레이아웃</li>
-              <li className="flex items-start gap-2"><BarChart3 className="h-4 w-4 mt-1"/> KPI 스토리(EBITDA, BEP, SLA 등) 가독성 강화</li>
-              <li className="flex items-start gap-2"><Users className="h-4 w-4 mt-1"/> 리드 전환 CTA 및 간편 문의 폼</li>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {["https://images.unsplash.com/photo-1551836022-4c4c79ecde51?q=80&w=1200&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop",
-            ].map((src)=> (
-              <img key={src} src={src} alt="about" className="rounded-2xl h-32 w-full object-cover"/>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* CONTACT */}
-      <section id="contact" className="bg-slate-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight">문의하기</h2>
-            <p className="mt-2 text-slate-300">간단히 남겨주시면 빠르게 회신드립니다. 실제 전송 로직은 곧바로 연결해드릴 수 있습니다.</p>
-            <div className="mt-6 space-y-3 text-sm text-slate-300">
-              <p className="flex items-center gap-2"><Mail className="h-4 w-4"/> hello@tu-strategy.co.kr</p>
-              <p className="flex items-center gap-2"><Phone className="h-4 w-4"/> 010-1234-5678</p>
-              <p className="flex items-center gap-2"><MapPin className="h-4 w-4"/> 서울특별시 ○○구 ○○로 123</p>
-            </div>
-          </div>
-          <Card className="bg-white/95 text-slate-900 rounded-2xl">
-            <CardHeader>
-              <CardTitle>빠른 상담</CardTitle>
-              <CardDescription>이 폼은 데모입니다. 전송 연동은 곧바로 셋업 가능.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-3" onSubmit={(e)=>{e.preventDefault(); alert('문의가 접수된 것으로 가정합니다. 문구/연동은 곧바로 바꿔드립니다.');}}>
-                <Input placeholder="이름" required/>
-                <Input type="email" placeholder="이메일" required/>
-                <Input placeholder="연락처"/>
-                <Textarea placeholder="문의 내용" rows={4}/>
-                <Button className="w-full rounded-2xl">보내기 <ArrowRight className="ml-2 h-4 w-4"/></Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-      {/* FOOTER */}
-      <footer className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-slate-500">
-          <p>© {new Date().getFullYear()} TU Strategy Lab. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a className="hover:text-slate-700" href="#">개인정보 처리방침</a>
-            <a className="hover:text-slate-700" href="#">이용약관</a>
-          </div>
-        </div>
-      </footer>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>티유치과 소개</title>
+  <style>
+    body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; }
+    header { background: #0077b6; color: white; padding: 40px; text-align: center; }
+    section { padding: 40px 20px; max-width: 900px; margin: auto; }
+    h2 { color: #0077b6; margin-bottom: 20px; }
+    .services { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 20px; width: 250px; text-align: center; }
+    footer { background: #f1f1f1; text-align: center; padding: 20px; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>티유치과</h1>
+  <p>환자의 건강과 아름다운 미소를 함께 지켜드립니다</p>
+</header>
+
+<section>
+  <h2>병원 소개</h2>
+  <p>
+    티유치과는 첨단 장비와 숙련된 의료진을 바탕으로 환자 맞춤형 진료를 제공합니다.  
+    임플란트, 교정, 심미치과 등 다양한 분야에서 전문성을 갖추고 있으며,  
+    환자의 편안함과 안전을 최우선으로 생각합니다.
+  </p>
+</section>
+
+<section>
+  <h2>진료 과목</h2>
+  <div class="services">
+    <div class="card">
+      <h3>임플란트</h3>
+      <p>정확한 진단과 최신 기술을 활용한 안전한 시술</p>
     </div>
-  );
-}
+    <div class="card">
+      <h3>교정 치료</h3>
+      <p>연령별 맞춤 교정 솔루션 제공</p>
+    </div>
+    <div class="card">
+      <h3>심미 치과</h3>
+      <p>자연스럽고 아름다운 미소를 위한 치료</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>의료진 소개</h2>
+  <p>풍부한 임상 경험을 가진 전문 의료진이 최선의 진료를 약속드립니다.</p>
+  <ul>
+    <li>홍길동 원장 – 보철 전문의</li>
+    <li>김철수 원장 – 교정 전문의</li>
+  </ul>
+</section>
+
+<section>
+  <h2>위치 & 연락처</h2>
+  <p>서울 서초구 서초대로 000 (더블유타워 13층)</p>
+  <p>전화: 02-1234-5678</p>
+  <p>예약: <a href="https://tu-dental.co.kr" target="_blank">공식 홈페이지 바로가기</a></p>
+</section>
+
+<footer>
+  <p>© 2025 티유치과. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
